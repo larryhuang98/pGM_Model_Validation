@@ -1,0 +1,5 @@
+parm pGM.prmtop
+trajin pgm4c.nc mdvel pgm4v.nc
+velocityautocorr vel-corr :WAT@O  out vel-corr-pgm4.txt diffout diff-pgm4.txt maxlag 5000 tstep 0.001 norm
+run
+exit

@@ -1,0 +1,195 @@
+
+          -------------------------------------------------------
+          Amber 22 PMEMD                              2022
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 22
+
+|  Compiled date/time: Tue Jun 18 19:24:27 2024
+| Run on 07/17/2024 at 16:37:54
+
+|   Executable path: /home8/larry/pmemd/bin/pmemd-pgm.MPI
+| Working directory: /home8/larry/test/scaling_test/pmemd
+|          Hostname: cpu-2-4
+
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: mdin1_np8                                                             
+|  MDOUT: sys1_8-pgm.out                                                        
+| INPCRD: sys1-pgm-nvteq.rst                                                    
+|   PARM: sys1-pgm_updated.prmtop                                               
+| RESTRT: restrt                                                                
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mdcrd                                                                 
+| MDINFO: mdinfo                                                                
+|LOGFILE: logfile                                                               
+|  MDFRC: mdfrc                                                                 
+
+
+ Here is the input file:
+
+ single point calc.                                                            
+ &cntrl                                                                        
+   imin=0, nstlim=10000,                                                       
+   irest=1, ntx=5,                                                             
+   ntt=1, temp0=300,                                                           
+   ntb=1, ntp=0,                                                               
+   ntc=2, ntf=2, tol=0.000001,                                                 
+   cut=9.,                                                                     
+   ntpr=100000, ntwr=100000, ntwx=100000,                                      
+   dt=0.001,                                                                   
+   ipgm=1,                                                                     
+ /                                                                             
+ &ewald                                                                        
+  skinnb=2.,ew_coeff=0.4,order=6,vdwmeth=0                                     
+ /                                                                             
+ &pol_gauss                                                                    
+   pol_gauss_verbose=0,ee_dsum_cut=9.0,                                        
+   dipole_scf_tol=0.01,dipole_scf_init=3,dipole_scf_init_order=2,dipole_scf_ini
+   scf_solv_opt=3,scf_sor_niter=100,scf_sor_coefficient=0.65,                  
+   scf_cg_niter=100,scf_local_niter=3,scf_local_cut=4.0                        
+ /                                                                             
+
+
+Note: ig = -1. Setting random seed to   615273 based on wallclock time in
+      microseconds and disabling the synchronization of random numbers 
+      between tasks to improve performance.
+| irandom = 1, using AMBER's internal random number generator (default).
+ 
+ 
+| Conditional Compilation Defines Used:
+| MPI
+| PUBFFT
+| BINTRAJ
+| EMIL
+| PGM
+
+| Largest sphere to fit in unit cell has radius =    12.429
+
+| New format PARM file being parsed.
+| Version =    1.000 Date = 04/24/24 Time = 21:11:54
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| New format PARM file being parsed.
+| Version =    1.000 Date = 04/24/24 Time = 21:11:54
+| Duplicated    0 dihedrals
+
+| Duplicated    0 dihedrals
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+ getting box info from netcdf restart file
+ NATOM  =    1536 NTYPES =       2 NBONH =    1536 MBONA  =       0
+ NTHETH =       0 MTHETA =       0 NPHIH =       0 MPHIA  =       0
+ NHPARM =       0 NPARM  =       0 NNB   =    2048 NRES   =     512
+ NBONA  =       0 NTHETA =       0 NPHIA =       0 NUMBND =       2
+ NUMANG =       0 NPTRA  =       0 NATYP =       2 NPHB   =       0
+ IFBOX  =       1 NMXRS  =       3 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+| Coordinate Index Table dimensions:     3    3    3
+| Direct force subcell size =     8.3127    8.3133    8.2862
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       5, irest   =       1, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =  100000, ntrx    =       1, ntwr    =  100000
+     iwrap   =       0, ntwx    =  100000, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       2, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =   9.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =     10000, nscm    =      1000, nrespa  =         1
+     t       =   0.00000, dt      =   0.00100, vlimit  =  20.00000
+
+Berendsen (weak-coupling) temperature regulation:
+     temp0   = 300.00000, tempi   =   0.00000, tautp   =   1.00000
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00000
+
+| Intermolecular bonds treatment:
+|     no_intermolecular_bonds =       1
+
+| Energy averages sample interval:
+|     ene_avg_sampling =  100000
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       0, eedmeth =       1, netfrc  =       1
+     Box X =   24.938   Box Y =   24.940   Box Z =   24.858
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   30       NFFT2 =   25       NFFT3 =   25
+     Cutoff=    9.000   Tol   =0.395E-07
+     Ewald Coefficient =  0.40000
+     Interpolation order =    6
+
+| PMEMD ewald parallel performance parameters:
+|     block_fft =    0
+|     fft_blk_y_divisor =    2
+|     excl_recip =    0
+|     excl_master =    0
+|     atm_redist_freq =  320
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =  2300.000 ps
+
+ 
+ Number of triangulated 3-point waters found:      512
+
+     Sum of charges from parm topology file =   0.00000000
+     Forcing neutrality...
+
+| Dynamic Memory, Types Used:
+| Reals              764719
+| Integers           178746
+
+| Nonbonded Pairs Initial Allocation:      116150
+
+| Running AMBER/MPI version on    8 MPI task
+
+ 
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8987E-11   at   2.875760
+ ---------------------------------------------------
+|---------------------------------------------------
+| APPROXIMATING direct energy using CUBIC SPLINE INTERPOLATION

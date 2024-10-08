@@ -1,0 +1,272 @@
+
+          -------------------------------------------------------
+          Amber 22 PMEMD                              2022
+          -------------------------------------------------------
+
+| PMEMD implementation of SANDER, Release 22
+
+|  Compiled date/time: Tue Jun 18 19:24:27 2024
+| Run on 08/12/2024 at 16:04:46
+
+|   Executable path: /home8/larry/pmemd/bin/pmemd-pgm
+| Working directory: /home8/larry/test/scaling_test/pmemd
+|          Hostname: rayl8
+
+  [-O]verwriting output
+
+File Assignments:
+|   MDIN: mdin7                                                                 
+|  MDOUT: sys7_1-tip3p.out                                                      
+| INPCRD: sys7-pgm-nvteq.rst                                                    
+|   PARM: sys7-pgm_updated.prmtop                                               
+| RESTRT: restrt                                                                
+|   REFC: refc                                                                  
+|  MDVEL: mdvel                                                                 
+|   MDEN: mden                                                                  
+|  MDCRD: mdcrd                                                                 
+| MDINFO: mdinfo                                                                
+|  MDFRC: mdfrc                                                                 
+
+
+ Here is the input file:
+
+ single point calc.                                                            
+ &cntrl                                                                        
+   imin=0, nstlim=10000,                                                       
+   irest=0, ntx=1,                                                             
+   ntt=1, temp0=300,                                                           
+   ntb=1, ntp=0,                                                               
+   ntc=2, ntf=2, tol=0.000001,                                                 
+   cut=9.,                                                                     
+   ntpr=100000, ntwr=100000, ntwx=100000,                                      
+   dt=0.001,                                                                   
+   ipgm=0,                                                                     
+ /                                                                             
+ &ewald                                                                        
+  skinnb=2.,ew_coeff=0.4,order=5,vdwmeth=0                                     
+ /                                                                             
+ &pol_gauss                                                                    
+   pol_gauss_verbose=0,ee_dsum_cut=9.0,                                        
+   dipole_scf_tol=0.01,dipole_scf_init=3,dipole_scf_init_order=2,dipole_scf_ini
+   scf_solv_opt=3,scf_sor_niter=100,scf_sor_coefficient=0.65,                  
+   scf_cg_niter=100,scf_local_niter=3,scf_local_cut=4.0                        
+ /                                                                             
+
+
+Note: ig = -1. Setting random seed to   647790 based on wallclock time in 
+      microseconds.
+| irandom = 1, using AMBER's internal random number generator (default).
+ 
+ 
+| Conditional Compilation Defines Used:
+| PUBFFT
+| BINTRAJ
+| EMIL
+| PGM
+
+| Largest sphere to fit in unit cell has radius =    24.971
+
+| New format PARM file being parsed.
+| Version =    1.000 Date = 04/24/24 Time = 21:13:58
+
+| Note: 1-4 EEL scale factors are being read from the topology file.
+
+| Note: 1-4 VDW scale factors are being read from the topology file.
+| Duplicated    0 dihedrals
+
+| Duplicated    0 dihedrals
+
+--------------------------------------------------------------------------------
+   1.  RESOURCE   USE: 
+--------------------------------------------------------------------------------
+
+ getting box info from netcdf restart file
+ NATOM  =   12288 NTYPES =       2 NBONH =   12288 MBONA  =       0
+ NTHETH =       0 MTHETA =       0 NPHIH =       0 MPHIA  =       0
+ NHPARM =       0 NPARM  =       0 NNB   =   16384 NRES   =    4096
+ NBONA  =       0 NTHETA =       0 NPHIA =       0 NUMBND =       2
+ NUMANG =       0 NPTRA  =       0 NATYP =       2 NPHB   =       0
+ IFBOX  =       1 NMXRS  =       3 IFCAP =       0 NEXTRA =       0
+ NCOPY  =       0
+
+| Coordinate Index Table dimensions:     8    8    8
+| Direct force subcell size =     6.2486    6.2429    6.2515
+
+     BOX TYPE: RECTILINEAR
+
+--------------------------------------------------------------------------------
+   2.  CONTROL  DATA  FOR  THE  RUN
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+
+General flags:
+     imin    =       0, nmropt  =       0
+
+Nature and format of input:
+     ntx     =       1, irest   =       0, ntrx    =       1
+
+Nature and format of output:
+     ntxo    =       2, ntpr    =  100000, ntrx    =       1, ntwr    =  100000
+     iwrap   =       0, ntwx    =  100000, ntwv    =       0, ntwe    =       0
+     ioutfm  =       1, ntwprt  =       0, idecomp =       0, rbornstat=      0
+
+Potential function:
+     ntf     =       2, ntb     =       1, igb     =       0, nsnb    =      25
+     ipol    =       0, gbsa    =       0, iesp    =       0
+     dielc   =   1.00000, cut     =   9.00000, intdiel =   1.00000
+
+Frozen or restrained atoms:
+     ibelly  =       0, ntr     =       0
+
+Molecular dynamics:
+     nstlim  =     10000, nscm    =      1000, nrespa  =         1
+     t       =   0.00000, dt      =   0.00100, vlimit  =  20.00000
+
+Berendsen (weak-coupling) temperature regulation:
+     temp0   = 300.00000, tempi   =   0.00000, tautp   =   1.00000
+
+SHAKE:
+     ntc     =       2, jfastw  =       0
+     tol     =   0.00000
+
+| Intermolecular bonds treatment:
+|     no_intermolecular_bonds =       1
+
+| Energy averages sample interval:
+|     ene_avg_sampling =  100000
+
+Ewald parameters:
+     verbose =       0, ew_type =       0, nbflag  =       1, use_pme =       1
+     vdwmeth =       0, eedmeth =       1, netfrc  =       1
+     Box X =   49.989   Box Y =   49.943   Box Z =   50.012
+     Alpha =   90.000   Beta  =   90.000   Gamma =   90.000
+     NFFT1 =   50       NFFT2 =   50       NFFT3 =   54
+     Cutoff=    9.000   Tol   =0.395E-07
+     Ewald Coefficient =  0.40000
+     Interpolation order =    5
+
+--------------------------------------------------------------------------------
+   3.  ATOMIC COORDINATES AND VELOCITIES
+--------------------------------------------------------------------------------
+
+default_name                                                                    
+ begin time read from input coords =  2300.000 ps
+
+ 
+ Number of triangulated 3-point waters found:     4096
+
+     Sum of charges from parm topology file =   0.00000000
+     Forcing neutrality...
+
+| Dynamic Memory, Types Used:
+| Reals              464625
+| Integers           331783
+
+| Nonbonded Pairs Initial Allocation:     3716812
+
+--------------------------------------------------------------------------------
+   4.  RESULTS
+--------------------------------------------------------------------------------
+
+ ---------------------------------------------------
+ APPROXIMATING switch and d/dx switch using CUBIC SPLINE INTERPOLATION
+ using   5000.0 points per unit in tabled values
+ TESTING RELATIVE ERROR over r ranging from 0.0 to cutoff
+| CHECK switch(x): max rel err =   0.2738E-14   at   2.422500
+| CHECK d/dx switch(x): max rel err =   0.8987E-11   at   2.875760
+ ---------------------------------------------------
+|---------------------------------------------------
+| APPROXIMATING direct energy using CUBIC SPLINE INTERPOLATION
+|  with   50.0 points per unit in tabled values
+| Relative Error Limit not exceeded for r .gt.   2.54
+| APPROXIMATING direct force using CUBIC SPLINE INTERPOLATION
+|  with   50.0 points per unit in tabled values
+| Relative Error Limit not exceeded for r .gt.   2.93
+|---------------------------------------------------
+
+ NSTEP =        0   TIME(PS) =       0.000  TEMP(K) =     0.00  PRESS =     0.0
+ Etot   =    -36933.0737  EKtot   =         0.0000  EPtot      =    -36933.0737
+ BOND   =         0.0000  ANGLE   =         0.0000  DIHED      =         0.0000
+ 1-4 NB =         0.0000  1-4 EEL =         0.0000  VDWAALS    =      7081.8584
+ EELEC  =    -44014.9321  EHBOND  =         0.0000  RESTRAINT  =         0.0000
+ Ewald error estimate:   0.2505E-05
+ ------------------------------------------------------------------------------
+
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+check COM velocity, temp:        0.000000     0.00(Removed)
+--------------------------------------------------------------------------------
+   5.  TIMINGS
+--------------------------------------------------------------------------------
+
+|  NonSetup CPU Time in Major Routines:
+|
+|     Routine           Sec        %
+|     ------------------------------
+|     Nonbond         404.26   98.69
+|     Bond              0.01    0.00
+|     Angle             0.01    0.00
+|     Dihedral          0.01    0.00
+|     Shake             3.73    0.91
+|     RunMD             1.61    0.39
+|     Other             0.02    0.00
+|     ------------------------------
+|     Total           409.65
+
+|  PME Nonbond Pairlist CPU Time:
+|
+|     Routine              Sec        %
+|     ---------------------------------
+|     Set Up Cit           0.18    0.04
+|     Build List          27.50    6.71
+|     ---------------------------------
+|     Total               27.68    6.76
+
+|  PME Direct Force CPU Time:
+|
+|     Routine              Sec        %
+|     ---------------------------------
+|     NonBonded Calc     289.39   70.64
+|     Exclude Masked       3.22    0.79
+|     Other                2.80    0.68
+|     ---------------------------------
+|     Total              295.41   72.11
+
+|  PME Reciprocal Force CPU Time:
+|
+|     Routine              Sec        %
+|     ---------------------------------
+|     1D bspline          10.11    2.47
+|     Grid Charges        14.42    3.52
+|     Scalar Sum           1.50    0.37
+|     Gradient Sum        24.94    6.09
+|     FFT                 30.22    7.38
+|     ---------------------------------
+|     Total               81.19   19.82
+
+|  Final Performance Info:
+|     -----------------------------------------------------
+|     Average timings for last   10000 steps:
+|     Elapsed(s) =     410.64 Per Step(ms) =      41.06
+|         ns/day =       2.10   seconds/ns =   41064.18
+|
+|     Average timings for all steps:
+|     Elapsed(s) =     410.64 Per Step(ms) =      41.06
+|         ns/day =       2.10   seconds/ns =   41064.18
+|     -----------------------------------------------------
+
+|  Setup CPU time:            0.12 seconds
+|  NonSetup CPU time:       409.65 seconds
+|  Total CPU time:          409.76 seconds     0.11 hours
+
+|  Setup wall time:           0    seconds
+|  NonSetup wall time:      410    seconds
+|  Total wall time:         410    seconds     0.11 hours
